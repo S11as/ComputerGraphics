@@ -83,5 +83,23 @@ namespace FiltersApp
             SharpnessFilter filter = new SharpnessFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void эффектСтеклаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GlassFilter filter = new GlassFilter(this.image.Width, this.image.Height);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void волныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WavesFilter filter = new WavesFilter(this.image.Width, this.image.Height);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void размытиеВДвиженииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MotionBlurFilter filter = new MotionBlurFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

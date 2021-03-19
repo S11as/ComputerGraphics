@@ -1,4 +1,4 @@
-#Computer graphics
+# Computer graphics
 ### Команда разработки:
 - Станислав Москвин [@MoskvinSA](https://github.com/MoskvinSA)
 - Екатерина Синельникова [@KateSinelnikova](https://github.com/KateSinelnikova)
