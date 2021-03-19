@@ -27,7 +27,6 @@ namespace FiltersApp
                     this.kernel[i, j] *= ratio;
                 }
             }
-
         }
     }
 }

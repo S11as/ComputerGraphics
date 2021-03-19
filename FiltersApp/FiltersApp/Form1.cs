@@ -13,9 +13,21 @@ namespace FiltersApp
     public partial class Form1 : Form
     {
         protected Bitmap image;
+        protected StructuralElementCreator structuralElementCreator;
+        protected int[,] structuralElement = null;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public void SetStructuralElement(int[,] arr)
+        {
+            this.structuralElement = arr;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.structuralElementCreator = new StructuralElementCreator(this);
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +112,68 @@ namespace FiltersApp
         {
             MotionBlurFilter filter = new MotionBlurFilter();
             backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void расширениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dilation filter;
+            if (this.structuralElement != null)
+            {
+                filter = new Dilation(structuralElement);
+            }
+            else
+            {
+                filter = new Dilation();
+            }
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void сужениеErosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Erosion filter;
+            if (this.structuralElement != null)
+            {
+                filter = new Erosion(structuralElement);
+            }
+            else
+            {
+                filter = new Erosion();
+            }
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void размыканиеOpeningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opening filter;
+            if (this.structuralElement != null)
+            {
+                filter = new Opening(structuralElement);
+            }
+            else
+            {
+                filter = new Opening();
+            }
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void замыканиеClosingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Closing filter;
+            if (this.structuralElement != null)
+            {
+                filter = new Closing(structuralElement);
+            }
+            else
+            {
+                filter = new Closing();
+            }
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void задатьСтруктурныйЭлементToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            structuralElementCreator.Refresh();
+            structuralElementCreator.Show();
         }
     }
 }

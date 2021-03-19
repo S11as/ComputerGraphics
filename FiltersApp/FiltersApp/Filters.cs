@@ -11,12 +11,12 @@ namespace FiltersApp
     abstract class Filters
     {
         internal abstract Color CalculatePixel(Bitmap sourceImage, int x, int y);
-        public Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
+        public virtual Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
             for(int i=0; i<sourceImage.Width; i++)
             {
-                worker.ReportProgress((int)((float)i / resultImage.Width * 100));
+                this.ReportProgress(i, resultImage.Width, worker);
                 if(worker.CancellationPending)
                     return null;
                 for(int j=0; j<sourceImage.Height; j++)
@@ -37,6 +37,11 @@ namespace FiltersApp
                 return max;
             }
             return value;
+        }
+
+        protected virtual void ReportProgress(int done, int width, BackgroundWorker worker)
+        {
+            worker.ReportProgress((int)((float)done / width * 100));
         }
     }
 }
