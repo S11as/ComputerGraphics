@@ -22,8 +22,8 @@ namespace FiltersApp
         public Closing(int[,] structuralElement)
         {
             this.structuralElement = structuralElement;
-            this.diliation = new Dilation(structuralElement, 2, 2);
-            this.erosion = new Erosion(structuralElement, 2, 1);
+            this.diliation = new Dilation(structuralElement, 2, 1);
+            this.erosion = new Erosion(structuralElement, 2, 2);
         }
         public override Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
         {

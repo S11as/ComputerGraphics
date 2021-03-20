@@ -175,5 +175,37 @@ namespace FiltersApp
             structuralElementCreator.Refresh();
             structuralElementCreator.Show();
         }
+
+        private void gradToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Grad filter;
+            if (this.structuralElement != null)
+            {
+                filter = new Grad(structuralElement);
+            }
+            else
+            {
+                filter = new Grad();
+            }
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void серыйМирToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrayWorldFilter filter = new GrayWorldFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MedianFilter filter = new MedianFilter(2);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void операторПрюиттаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PruittFilter filter = new PruittFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
