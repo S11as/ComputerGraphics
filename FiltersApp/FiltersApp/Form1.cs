@@ -198,13 +198,19 @@ namespace FiltersApp
 
         private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MedianFilter filter = new MedianFilter(2);
+            MedianFilter filter = new MedianFilter(3);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void операторПрюиттаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PruittFilter filter = new PruittFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LinearTension filter = new LinearTension();
             backgroundWorker1.RunWorkerAsync(filter);
         }
     }

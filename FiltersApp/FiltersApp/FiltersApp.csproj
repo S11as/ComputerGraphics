@@ -63,6 +63,7 @@
     <Compile Include="Grad.cs" />
     <Compile Include="GrayWorldFilter.cs" />
     <Compile Include="InvertFilter.cs" />
+    <Compile Include="LinearTension.cs" />
     <Compile Include="MathMorphology.cs" />
     <Compile Include="MatrixFilter.cs" />
     <Compile Include="MedianFilter.cs" />
