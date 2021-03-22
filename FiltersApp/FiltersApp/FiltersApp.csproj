@@ -61,7 +61,9 @@
     <Compile Include="GaussianFilter.cs" />
     <Compile Include="GlassFilter.cs" />
     <Compile Include="Grad.cs" />
+    <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="GrayWorldFilter.cs" />
+    <Compile Include="IncreaseBrightness.cs" />
     <Compile Include="InvertFilter.cs" />
     <Compile Include="LinearTension.cs" />
     <Compile Include="MathMorphology.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="PruittFilter.cs" />
     <Compile Include="PruittFilterX.cs" />
     <Compile Include="PruittFilterY.cs" />
+    <Compile Include="SepiaFilter.cs" />
     <Compile Include="SharpnessFilter.cs" />
     <Compile Include="SobelFilter.cs" />
     <Compile Include="SobelFilterX.cs" />

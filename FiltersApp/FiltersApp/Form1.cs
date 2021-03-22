@@ -213,5 +213,24 @@ namespace FiltersApp
             LinearTension filter = new LinearTension();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void чёрнобелыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrayScaleFilter filter = new GrayScaleFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void сепияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SepiaFilter filter = new SepiaFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void увеличениеЯркостиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IncreaseBrightness filter = new IncreaseBrightness();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+    
     }
 }
