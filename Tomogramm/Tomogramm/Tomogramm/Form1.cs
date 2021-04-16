@@ -19,6 +19,8 @@ namespace Tomogramm
 
         int FrameCount;
         DateTime NextFPSUpdate = DateTime.Now.AddSeconds(1);
+
+        bool textureNeedReload = false;
         public Form1()
         {
             InitializeComponent();
@@ -49,7 +51,22 @@ namespace Tomogramm
         {
             if (loaded)
             {
-                view.DrawQuads(currentLayer);
+                if (radioButton1.Checked)
+                {
+                    view.DrawQuads(currentLayer);
+                } else if (radioButton2.Checked)
+                {
+                    view.DrawStrip(currentLayer);
+                } else if (radioButton3.Checked)
+                {
+                    if (textureNeedReload)
+                    {
+                        view.generateTextureImage(currentLayer);
+                        view.Load2Dexture();
+                        textureNeedReload = false;
+                    }
+                    view.DrawTexture();
+                }
                 glControl1.SwapBuffers();
             }
         }
@@ -57,6 +74,7 @@ namespace Tomogramm
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             currentLayer = trackBar1.Value;
+            textureNeedReload = true;
         }
 
         private void Application_Idle(object sender, EventArgs e)
@@ -77,6 +95,16 @@ namespace Tomogramm
                     FrameCount = 0;
                 }
                 FrameCount++;
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            view.SetMin(trackBar2.Value);
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            view.SetWidth(trackBar3.Value*20);
         }
     }
 }
